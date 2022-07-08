@@ -63,7 +63,7 @@ recipient_delimiter = +
 enable_long_queue_ids = yes
 
 # useful when huge queue
-#hash_queue_depth = 6
+hash_queue_depth = 2
 #hash_queue_names = incoming, active, deferred, bounce, defer, flush,hold, trace
 
 ## for only iinternal so that haraka can be outside
@@ -132,7 +132,8 @@ empty_address_recipient = postmaster@powermail.mydomainname.com
 # See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
 # information on enabling SSL in the smtp client.
 
-
+##for relay to other smtp
+#smtp_sasl_auth_enable = yes
 smtpd_sasl_auth_enable = yes
 smtpd_sasl_security_options = noanonymous
 broken_sasl_auth_clients = yes
@@ -187,7 +188,7 @@ smtpd_sasl_authenticated_header = yes
 ## for opendkim
 milter_default_action = accept
 milter_protocol = 6
-smtpd_milters = inet:localhost:12345
+smtpd_milters =  inet:localhost:33333,inet:localhost:12345
 non_smtpd_milters = inet:localhost:12345
 
 transport_maps = hash:/etc/postfix/transport_smtp_routes 
@@ -218,12 +219,13 @@ transport_maps = hash:/etc/postfix/transport_smtp_routes
 #qmgr_message_active_limit = 40000
 #qmgr_message_recipient_limit = 40000
 
-
+## for MailScanner MSmilter
+qmqpd_authorized_clients = 127.0.0.1
 #smtpd_recipient_limit = 1000
 
 ## perforance tunning codes for healthy server.
 #default_destination_concurrency_limit=50
-#default_destination_recipient_limit=50
+default_destination_recipient_limit=1
 #default_process_limit=200
 #smtp_mx_session_limit=100
 #smtpd_client_connection_count_limit=100

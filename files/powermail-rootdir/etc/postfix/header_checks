@@ -1,2 +1,3 @@
 /^subject:/      INFO
 /^Subject:/      INFO
+/^X-MailScanner-QID:/         INFO
