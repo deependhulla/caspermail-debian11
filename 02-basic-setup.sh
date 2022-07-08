@@ -95,9 +95,26 @@ a2enmod cgi > /dev/null 2>&1
 a2enmod headers > /dev/null 2>&1
 a2enmod proxy_http > /dev/null 2>&1
 
-## keep fpm disabled default if installed by mistake
+systemctl stop apache2
+## usefull for nginx imap & smtp proxy  --also with php-fpm
+apt-get -y install nginx-full php-fpm php-pear
+
+## keep fpm disabled default -- useful for very high load web-server
 systemctl stop php.fpm  > /dev/null 2>&1
 systemctl disable php-fpm > /dev/null 2>&1
+#To enable PHP 7.4 FPM in Apache2 do:
+#a2enmod proxy_fcgi setenvif
+#a2enconf php7.4-fpm
+
+
+### changing timezone to Asia Kolkata
+sed -i "s/;date.timezone =/date\.timezone \= \'Asia\/Kolkata\'/" /etc/php/7.4/apache2/php.ini
+sed -i "s/;date.timezone =/date\.timezone \= \'Asia\/Kolkata\'/" /etc/php/7.4/cli/php.ini
+sed -i "s/;date.timezone =/date\.timezone \= \'Asia\/Kolkata\'/" /etc/php/7.4/fpm/php.ini
+##disable error
+sed -i "s/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = E_ERROR/" /etc/php/7.4/cli/php.ini
+sed -i "s/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = E_ERROR/" /etc/php/7.4/fpm/php.ini
+sed -i "s/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = E_ERROR/" /etc/php/7.4/apache2/php.ini
 
 ## install insstead of systemd-timesyncd for better time sync
 apt-get install chrony -y 2>/dev/null 1>/dev/null
