@@ -1,0 +1,21 @@
+#!/bin/sh
+
+iptables -F
+
+##disable ipv6 as most time not required --by making it to 1
+sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sysctl -w net.ipv6.conf.default.disable_ipv6=1
+## to not use Swap use more RAM
+sysctl vm.swappiness=0
+
+## for tmp files of groupoffice
+mkdir /tmp/groupoffice
+chown www-data:www-data /tmp/groupoffice
+
+## remove old process if any like archive process.
+/bin/rm -rf /tmp/read-* 
+
+## webmin certificate from letsenrypt
+#cat /etc/letsencrypt/live/powermail.mydomainname.com/{cert,chain,fullchain,privkey}.pem >/etc/webmin/miniserv.pem
+
+
