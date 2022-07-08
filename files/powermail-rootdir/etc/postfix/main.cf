@@ -60,7 +60,7 @@ recipient_delimiter = +
 #recipient_delimiter =
 
 ## good for log check and  unique log id
-#enable_long_queue_ids = yes
+enable_long_queue_ids = yes
 
 # useful when huge queue
 #hash_queue_depth = 6

@@ -1,13 +1,12 @@
 #!/bin/sh
 
-apt-get -y install spamassassin libgssapi-perl razor pyzor libencode-detect-perl libgeoip2-perl libnet-patricia-perl libbsd-resource-perl libencoding-fixlatin-perl libencoding-fixlatin-xs-perl liburi-encode-perl
 
 wget https://github.com/MailScanner/v5/releases/download/5.4.4-1/MailScanner-5.4.4-1.noarch.deb -O /opt/MailScanner-5.4.4-1.noarch.deb
 wget -c https://github.com/MailScanner/v5/releases/download/5.4.4-1/MailScanner-5.4.4-1.noarch.deb.sig -O /opt/MailScanner-5.4.4-1.noarch.deb.sig
-sh files/mailscanner-files/extra-perl-modules.sh
+#sh files/mailscanner-files/extra-perl-modules.sh
 
 dpkg -i /opt/MailScanner-5.4.4-1.noarch.deb
-/usr/sbin/ms-configure --MTA=postfix --installClamav=Y --installCPAN=Y --ignoreDeps=N --ramdiskSize=0
+/usr/sbin/ms-configure --MTA=postfix --installClamav=N --installCPAN=Y --ignoreDeps=N --ramdiskSize=0
 
 ## allow http://lists.mailscanner.info/pipermail/mailscanner/2012-February/099106.html
 ## 
@@ -22,7 +21,7 @@ dpkg -i /opt/MailScanner-5.4.4-1.noarch.deb
 systemctl restart apparmor.service 2>/dev/null 
 
 sed -i "s/run_mailscanner=0/run_mailscanner=1/" /etc/MailScanner/defaults 
-/bin/cp -p files/mailscanner-files/header_checks /etc/postfix/header_checks
+#/bin/cp -p files/mailscanner-files/header_checks /etc/postfix/header_checks
 
 ##/bin/cp -p files/mailscanner-files/clamd.conf /etc/clamav/
 
