@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ## install postfix dovecot fetchmail and recoll for search-engine for archive use latter
-apt-get -y install postfix-mysql dovecot-mysql dovecot-sieve dovecot-managesieved dovecot-imapd dovecot-pop3d dovecot-sieve dovecot-antispam sendemail  dovecot-fts-xapian postfix-pcre postfwd whois opendkim opendkim-tools xapian-tools recoll libdatetime-format-mail-perl fetchmail imapproxy
+apt-get -y install postfix-mysql dovecot-mysql dovecot-sieve dovecot-managesieved dovecot-imapd dovecot-pop3d dovecot-sieve dovecot-antispam sendemail  dovecot-fts-xapian postfix-pcre postfwd whois opendkim opendkim-tools xapian-tools recoll libdatetime-format-mail-perl fetchmail imapproxy spamassassin libgssapi-perl razor pyzor libencode-detect-perl libgeoip2-perl libnet-patricia-perl libbsd-resource-perl libencoding-fixlatin-perl libencoding-fixlatin-xs-perl liburi-encode-perl
 
 echo `hostname -f` > /etc/mailname
 ## adding 89 so that migration from qmailtoaster setup is easier.
