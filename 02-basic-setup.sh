@@ -14,8 +14,9 @@ echo "Setting rc.local, perl, bash, vim basic default config and IST time sync N
 ## create with default IPV6 disabled 
 touch /etc/rc.local 
 printf '%s\n' '#!/bin/bash'  | tee -a /etc/rc.local 1>/dev/null
-echo "sysctl -w net.ipv6.conf.all.disable_ipv6=1" >>/etc/rc.local
-echo "sysctl -w net.ipv6.conf.default.disable_ipv6=1" >> /etc/rc.local
+echo "#sysctl -w net.ipv6.conf.all.disable_ipv6=1" >>/etc/rc.local
+echo "#sysctl -w net.ipv6.conf.default.disable_ipv6=1" >> /etc/rc.local
+echo "sysctl vm.swappiness=0" >> /etc/rc.local
 echo "exit 0" >> /etc/rc.local
 chmod 755 /etc/rc.local
 ## need like autoexe bat on startup
@@ -75,7 +76,7 @@ echo "iptables-persistent iptables-persistent/autosave_v6 boolean true" | debcon
 ## iptables is still usefull and other addon tools 
 ## build-essential ...at time needed for any code make..or kernel driver...you can skip it if needed
 ## command line sendEmail for testing and report sending
-apt-get -y install postfix iptables-persistent libimage-exiftool-perl build-essential gnupg2 zip rar unrar ftp poppler-utils tnef sudo whois libauthen-pam-perl libio-pty-perl libnet-ssleay-perl perl-openssl-defaults sendemail rsync mariadb-server php apache2 libapache2-mod-php php-mysql php-cli php-common php-imap php-ldap php-xml php-curl php-mbstring php-zip php-apcu php-gd php-imagick imagemagick mcrypt memcached php-memcached php-bcmath dbconfig-common libapache2-mod-php php-intl php-mysql php-intl libdbd-mysql-perl certbot python3-certbot-apache automysqlbackup php-mailparse 
+apt-get -y install postfix iptables-persistent libimage-exiftool-perl build-essential gnupg2 zip rar unrar ftp poppler-utils tnef sudo whois libauthen-pam-perl libio-pty-perl libnet-ssleay-perl perl-openssl-defaults sendemail rsync mariadb-server php apache2 libapache2-mod-php php-mysql php-cli php-common php-imap php-ldap php-xml php-curl php-mbstring php-zip php-apcu php-gd php-imagick imagemagick mcrypt memcached php-memcached php-bcmath dbconfig-common libapache2-mod-php php-intl php-mysql php-intl libdbd-mysql-perl certbot python3-certbot-apache automysqlbackup php-mailparse perl-doc mysqltuner 
 ## to use more advance database storage type
 # apt-get install mariadb-plugin-rocksdb
 
@@ -105,7 +106,10 @@ systemctl disable php-fpm > /dev/null 2>&1
 #To enable PHP 7.4 FPM in Apache2 do:
 #a2enmod proxy_fcgi setenvif
 #a2enconf php7.4-fpm
-
+## download latest MyslqTunner--useful when perforance tuning needed
+cd /opt
+git clone https://github.com/major/MySQLTuner-perl.git
+cd -
 
 ### changing timezone to Asia Kolkata
 sed -i "s/;date.timezone =/date\.timezone \= \'Asia\/Kolkata\'/" /etc/php/7.4/apache2/php.ini

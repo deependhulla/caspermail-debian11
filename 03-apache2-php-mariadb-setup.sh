@@ -11,16 +11,8 @@ mysqladmin -uroot refresh
 files/extra-files/etc-config-backup.sh
 
 
-### changing timezone to Asia Kolkata
-sed -i "s/;date.timezone =/date\.timezone \= \'Asia\/Kolkata\'/" /etc/php/7.4/apache2/php.ini
-sed -i "s/;date.timezone =/date\.timezone \= \'Asia\/Kolkata\'/" /etc/php/7.4/cli/php.ini
-##disable error
-sed -i "s/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = E_ERROR/" /etc/php/7.4/cli/php.ini
-sed -i "s/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = E_ERROR/" /etc/php/7.4/apache2/php.ini
 
 
-systemctl restart  apache2
-systemctl restart  rsyslog
 systemctl restart  cron
 systemctl restart  mariadb
 
