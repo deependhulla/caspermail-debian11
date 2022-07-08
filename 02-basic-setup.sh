@@ -106,7 +106,9 @@ systemctl disable php-fpm > /dev/null 2>&1
 #To enable PHP 7.4 FPM in Apache2 do:
 #a2enmod proxy_fcgi setenvif
 #a2enconf php7.4-fpm
+
 ## download latest MyslqTunner--useful when perforance tuning needed
+#https://github.com/major/MySQLTuner-perl/blob/master/INTERNALS.md
 cd /opt
 git clone https://github.com/major/MySQLTuner-perl.git
 cd -
@@ -141,6 +143,16 @@ systemctl restart  apache2
 systemctl restart  cron
 systemctl restart  mariadb
 
+
+
+## for PHP composer package
+#echo "installing php composer"
+#cd /opt
+#php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+#php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+#php composer-setup.php
+#php -r "unlink('composer-setup.php');"
+#cd -
 
 
 echo " Please Logout and login again so that bashrc is reloaded for you"
