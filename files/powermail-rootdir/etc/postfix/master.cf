@@ -40,7 +40,7 @@ dovecot   unix  -       n       n       -       -       pipe
     flags=DRhu user=vmail:vmail argv=/usr/lib/dovecot/deliver -f ${sender} -d ${recipient}
 #628       inet  n       -       y       -       -       qmqpd
 ##MailScanner MSMilter
-qmqp    unix    n       -       n       -       -       qmqpd
+qmqp	unix	n	-	n	-	-	qmqpd
 pickup    unix  n       -       y       60      1       pickup
 cleanup   unix  n       -       y       -       0       cleanup
 qmgr      unix  n       -       n       300     1       qmgr

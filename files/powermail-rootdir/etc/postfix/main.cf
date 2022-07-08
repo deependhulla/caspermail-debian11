@@ -188,6 +188,8 @@ smtpd_sasl_authenticated_header = yes
 ## for opendkim
 milter_default_action = accept
 milter_protocol = 6
+##https://usermanual.wiki/Document/MailScanner20Milter20Guide.1842687663.pdf
+## YOU WOULD SEE DISCARD IN LOG ..PLEASE IGNORE --see document page 6 for information
 smtpd_milters =  inet:localhost:33333,inet:localhost:12345
 non_smtpd_milters = inet:localhost:12345
 

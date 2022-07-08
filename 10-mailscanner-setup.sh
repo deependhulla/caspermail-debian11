@@ -59,15 +59,19 @@ chmod 666 /var/spool/MailScanner/incoming/SpamAssassin.cache.db 1>/dev/null 2>/d
 sed -i "s/powermail\.mydomainname\.com/`hostname`/"   /etc/MailScanner/MailScanner.conf
 
 echo "Resarting all service ...please wait..."
-systemctl restart mailscanner
 systemctl restart dovecot
-systemctl restart postfix
 systemctl restart opendkim
-systemctl restart clamav-daemon 2>/dev/null
-systemctl restart cron
+#systemctl restart clamav-daemon 2>/dev/null
+#systemctl restart cron
 
 ##force one more time
-
 chmod 666 /var/spool/MailScanner/incoming/SpamAssassin.cache.db 2>/dev/null 1>/dev/null
+
+systemctl enable postfix
+systemctl restart postfix
+systemctl enable mailscanner
+systemctl restart mailscanner
+systemctl enable msmilter
+systemctl restart msmilter
 
 echo "Done."
