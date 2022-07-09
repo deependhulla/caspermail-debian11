@@ -7,6 +7,8 @@ wget -c https://github.com/MailScanner/v5/releases/download/5.4.4-1/MailScanner-
 
 dpkg -i /opt/MailScanner-5.4.4-1.noarch.deb
 /usr/sbin/ms-configure --MTA=postfix --installClamav=N --installCPAN=Y --ignoreDeps=N --ramdiskSize=0
+##backup Message.pm as we are updating with Opentrack URL-Images
+/bin/cp /usr/share/MailScanner/perl/MailScanner/Message.pm /usr/local/src/MailScanner-Orginal-Message-`date +%s`.pm 
 
 ## allow http://lists.mailscanner.info/pipermail/mailscanner/2012-February/099106.html
 ## 
