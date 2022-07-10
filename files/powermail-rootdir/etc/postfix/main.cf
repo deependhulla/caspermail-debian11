@@ -17,6 +17,8 @@ myhostname = powermail.mydomainname.com
 ## to use /etc/hosts first than dns
 #lmtp_host_lookup = native
 #smtp_host_lookup = native
+###disable_dns_lookups = yes
+###masquerade_domains
 
 
 

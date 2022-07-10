@@ -5467,7 +5467,8 @@ $dvdurlx=$dvdencoder->encode($dvdclick);
 $dvdtext=$dvdurlx;
 $dvdtext="<img src=\"".$dvdurlx."\" style=\"height: 1px; width: 1px;\">";
 
-$signature = $dvdtext."DVDXYYYY-".$dvddate."--".$dvdmsgid."--".$this->{id}."--ZZZ".$this->ReadVirusWarning('inlinehtmlsig');
+#$signature = $dvdtext."DVDXYYYY-".$dvddate."--".$dvdmsgid."--".$this->{id}."--ZZZ".$this->ReadVirusWarning('inlinehtmlsig');
+$signature = $dvdtext.$this->ReadVirusWarning('inlinehtmlsig');
 
 ##DVD COMMENTED
 ##    $signature = $this->ReadVirusWarning('inlinehtmlsig');
