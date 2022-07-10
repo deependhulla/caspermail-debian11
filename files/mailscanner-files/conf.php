@@ -115,7 +115,7 @@ define('PROXY_USER', '');
 define('PROXY_PASS', '');
 
 // Paths
-define('MAILWATCH_HOME', '/var/www/html/mailwatch');
+define('MAILWATCH_HOME', '/var/www/html/mailscanner');
 define('MS_CONFIG_DIR', '/etc/MailScanner/');
 define('MS_SHARE_DIR', '/usr/share/MailScanner/'); // Path for ConfigDefs.pl file
 define('MS_LIB_DIR', '/usr/lib/MailScanner/'); // Path for sophos-wrapper file
