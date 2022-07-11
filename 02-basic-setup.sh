@@ -99,7 +99,8 @@ a2enmod proxy_http > /dev/null 2>&1
 systemctl stop apache2
 ## usefull for nginx imap & smtp proxy  --also with php-fpm
 apt-get -y install nginx-full php-fpm php-pear
-
+systemctl stop php7.4-fpm.service > /dev/null 2>&1
+systemctl disable php7.4-fpm.service > /dev/null 2>&1
 ## keep fpm disabled default -- useful for very high load web-server
 systemctl stop php.fpm  > /dev/null 2>&1
 systemctl disable php-fpm > /dev/null 2>&1
