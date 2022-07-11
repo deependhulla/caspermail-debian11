@@ -54,7 +54,7 @@ function doit($input)
             $result = dbquery("SELECT id from `maillog` where messageid='" . $message_id . "' LIMIT 1;");
             $smtpd_id = $result->fetch_row()[0];
             if ($smtpd_id !== null && $smtpd_id !== $smtp_id) {
-                dbquery("REPLACE INTO `mtalog_ids` VALUES ('" . $smtpd_id . "','" . $smtp_id . "')");
+                dbquery("REPLACE INTO `mtalog_ids` VALUES (NULL,'" . $smtpd_id . "','" . $smtp_id . "')");
             }
         }
     }
