@@ -41,3 +41,11 @@ ALTER TABLE `mtalog`
     ADD KEY `smtpd_id` (`smtpd_id`);
    
 
+ALTER TABLE `mtalog`
+  MODIFY `mtalog_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+
+ALTER TABLE `mtalog_ids`
+  MODIFY `uid` bigint(20) NOT NULL AUTO_INCREMENT;
+
+

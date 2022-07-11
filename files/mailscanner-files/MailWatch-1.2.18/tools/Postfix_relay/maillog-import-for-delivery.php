@@ -163,7 +163,7 @@ if (isset($_SERVER['argv'][1]) && $_SERVER['argv'][1] === '--do-one-time') {
     dolog('cat ' . $dlog);
 } else {
     // Refresh first time log file
-//    dolog('cat ' . $dlog);
+    dolog('cat ' . $dlog);
     // Start watching with tail
     dolog('tail -F -n0 ' . $dlog);
 }
