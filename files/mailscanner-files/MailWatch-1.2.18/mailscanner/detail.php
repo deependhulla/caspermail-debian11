@@ -69,7 +69,8 @@ $mta = get_conf_var('mta');
 // The sql command to pull the data
 $sql = "
  SELECT
-  DATE_FORMAT(timestamp, '" . DATE_FORMAT . ' ' . TIME_FORMAT . "') AS '" . __('receivedon04') . "',
+ --  DATE_FORMAT(timestamp, '" . DATE_FORMAT . ' ' . TIME_FORMAT . "') AS '" . __('receivedon04') . "',
+  DATE_FORMAT(timestamp, '%Y-%m-%d %H:%i:%s') AS '" . __('receivedon04') . "',
   hostname AS '" . __('receivedby04') . "',
   clientip AS '" . __('receivedfrom04') . "',
 --  headers '" . __('receivedvia04') . "',
@@ -303,7 +304,19 @@ for ($f = 0; $f < $result->field_count; $f++) {
         // Actual data
         if (!empty($row[$f])) {
             // Skip empty rows (notably Spam Report when SpamAssassin didn't run)
-            echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail">' . $row[$f] . '</td></tr>' . "\n";
+/// DVD
+$dvdvalue=$row[$f];
+if($fieldn=="Archive")
+{
+$dvddate="";
+$dvddatex=array();
+$dvddatex=explode(" ",$row[0]);
+$dvddate=$dvddatex[0];
+$dvddate=str_replace("-","",$dvddate);
+$dvdfile=$row[3];
+$dvdvalue=$dvdvalue.$dvddate."/".$dvdfile;
+}
+            echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail">' . $dvdvalue . '</td></tr>' . "\n";
         }
     }
 }
