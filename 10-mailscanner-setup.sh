@@ -43,6 +43,7 @@ chown postfix:root /var/spool/postfix/
 chmod 744 /var/spool/postfix/incoming/
 chmod 744 /var/spool/postfix/hold/
 chown -R postfix  /var/log/clamav 2>/dev/null
+/bin/cp -pRv files/mailscanner-rootdir/* /
 ## Mail-Archive Tool
 mkdir /archivedata
 mkdir /archivedata/mail-archive-uncompress 2>/dev/null
