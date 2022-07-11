@@ -91,7 +91,7 @@ function follow($file)
                     $smtpd_id = $result->fetch_row()[0];
                 }
                 if ($smtpd_id !== null && $smtpd_id !== $smtp_id) {
-                    dbquery("REPLACE INTO `mtalog_ids` VALUES ('" . $smtpd_id . "','" . $smtp_id . "')");
+                    dbquery("REPLACE INTO `mtalog_ids` VALUES (NULL,'" . $smtpd_id . "','" . $smtp_id . "')");
                 }
             }
         }

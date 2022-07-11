@@ -72,7 +72,7 @@ $sql = "
   DATE_FORMAT(timestamp, '" . DATE_FORMAT . ' ' . TIME_FORMAT . "') AS '" . __('receivedon04') . "',
   hostname AS '" . __('receivedby04') . "',
   clientip AS '" . __('receivedfrom04') . "',
-  headers '" . __('receivedvia04') . "',
+--  headers '" . __('receivedvia04') . "',
   id AS '" . __('id04') . "',
   headers AS '" . __('msgheaders04') . "',
   from_address AS '" . __('from04') . "',
@@ -143,7 +143,7 @@ for ($f = 0; $f < $result->field_count; $f++) {
         $output .= "</tr></table>\n";
         $row[$f] = $output;
     }
-    if ($fieldn === __('receivedvia04')) {
+    if ($field_dvd_disabled === __('receivedvia04')) {
         // Start Table
         $output = '<table width="100%" class="sa_rules_report">' . "\n";
         $output .= ' <tr>' . "\n";
@@ -313,7 +313,7 @@ for ($f = 0; $f < $result->field_count; $f++) {
 $sqlcheck = "SHOW TABLES LIKE 'mtalog_ids'";
 $tablecheck = dbquery($sqlcheck);
 if (($mta === 'postfix' || $mta === 'msmail') && $tablecheck->num_rows > 0) { //version for postfix
-    $sql1 = "
+/*     $sql1 = "
  SELECT
   DATE_FORMAT(m.timestamp,'" . DATE_FORMAT . ' ' . TIME_FORMAT . "') AS 'Date/Time',
   m.host AS 'Relayed by',
@@ -329,6 +329,29 @@ if (($mta === 'postfix' || $mta === 'msmail') && $tablecheck->num_rows > 0) { //
   m.type='relay'
  ORDER BY
   m.timestamp DESC";
+*/
+$sql1="
+SELECT
+ m.`to_address` AS 'TO Address',
+ m.`relay_to` as 'Relayed To', 
+ m.`status_code` as 'Status',
+ m.`host` as 'Host',  
+ m.`dsn` as 'DSN Code', 
+ m.`status_text` as 'Tech Details', 
+ m.`delay` as 'Delay Sec',
+ m.`msg_id` as 'Queue ID',
+ concat(m.`relay_date`,' ',m.`relay_time`) AS 'Relayed Date'
+  
+ FROM
+  mtalog AS m
+       	LEFT JOIN mtalog_ids AS i ON (i.smtp_id = m.msg_id)
+ WHERE
+  i.smtpd_id='".$url_id."'
+ ORDER BY
+  m.relay_date,relay_time,to_address DESC 
+";
+
+#print "<pre>  $sql1 </pre>";
 } else { //version for sendmail
     $sql1 = "
  SELECT
@@ -360,15 +383,9 @@ if (false !== $sth1 && $sth1->num_rows > 0) {
     echo "   </tr>\n";
     while ($row = $sth1->fetch_row()) {
         echo '    <tr>' . "\n";
-        echo '     <td class="detail" align="left">' . $row[0] . '</td>' . "\n"; // Date/Time
-        echo '     <td class="detail" align="left">' . $row[1] . '</td>' . "\n"; // Relayed by
-        if (($lhost = @gethostbyaddr($row[2])) !== $row[2]) {
-            echo '     <td class="detail" align="left">' . $lhost . '</td>' . "\n"; // Relayed to
-        } else {
-            echo '     <td class="detail" align="left">' . $row[2], '</td>' . "\n";
-        }
-        echo '     <td class="detail">' . $row[3] . '</td>' . "\n"; // Delay
-        echo '     <td class="detail">' . $row[4] . '</td>' . "\n"; // Status
+for ($f = 0; $f < $sth1->field_count; $f++) {        
+echo '     <td class="detail" align="left">' . $row[$f] . '</td>' . "\n"; 
+}
         echo '    </tr>' . "\n";
     }
     echo "  </table>\n";

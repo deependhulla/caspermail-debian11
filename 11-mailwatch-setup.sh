@@ -27,8 +27,8 @@ chmod 666 /var/log/clamav/clamav.log 2>/dev/null
 /bin/cp -pR files/mailscanner-files/MailWatch-1.2.18/tools/Cron_jobs/*.php /usr/local/bin/
 /bin/cp -pR files/mailscanner-files/MailWatch-1.2.18/tools/Postfix_relay/*.php /usr/local/bin/
 ###/bin/cp -pR files/mailscanner-files/MailWatch-1.2.18/tools/Postfix_relay/mailwatch-postfix-relay /usr/local/bin/
-/bin/cp -pR files/mailscanner-files/MailWatch-1.2.18/tools/Postfix_relay/mailwatch-milter-relay /usr/local/bin/
-/bin/cp -pR files/mailscanner-files/MailWatch-1.2.18/tools/Postfix_relay/mailwatch-milter-relay-tail-process /usr/local/bin/
+##/bin/cp -pR files/mailscanner-files/MailWatch-1.2.18/tools/Postfix_relay/mailwatch-milter-relay /usr/local/bin/
+/bin/cp -pR files/mailscanner-files/MailWatch-1.2.18/tools/Postfix_relay/mailwatch-milter-relay-tail-process.sh /usr/local/bin/
 /bin/cp -pR files/mailscanner-files/MailWatch-1.2.18/tools/Cron_jobs/mailwatch /etc/cron.daily/
 /bin/cp -pR files/mailscanner-files/MailWatch-1.2.18/mailscanner /var/www/html/
 /bin/cp -pv files/mailscanner-files/conf.php /var/www/html/mailscanner/
