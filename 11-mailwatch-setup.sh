@@ -41,8 +41,7 @@ sed -i "s/powermail\.mydomainname\.com/`hostname`/" /var/www/html/mailscanner/co
 sed -i "s/powermail\.mydomainname\.com/`hostname`/"   /etc/MailScanner/MailScanner.conf
 
 echo "Resarting all service ...please wait..."
-systemctl restart mailscanner
-systemctl restart cron
+systemctl restart mailscanner msmilter.service 
 ##saferside chown
 chmod 666 /var/spool/MailScanner/incoming/SpamAssassin.cache.db 2>/dev/null 1>/dev/null
 
