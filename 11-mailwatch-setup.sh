@@ -45,4 +45,5 @@ systemctl restart mailscanner msmilter.service
 ##saferside chown
 chmod 666 /var/spool/MailScanner/incoming/SpamAssassin.cache.db 2>/dev/null 1>/dev/null
 
+echo "All Setup Done ,please reboot the Server once";
 echo "Done."
