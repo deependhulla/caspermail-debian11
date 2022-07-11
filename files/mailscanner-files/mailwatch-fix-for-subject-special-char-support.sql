@@ -1,7 +1,7 @@
-
+use mailscanner;
 ALTER TABLE `mailscanner`.`maillog` CHANGE `subject` `subject` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL ;
 ALTER TABLE `mailscanner`.`maillog` CHANGE `headers` `headers` MEDIUMTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
-ALTER TABLE `mailscanner`.`mtalog_ids` ADD `uid` BIGINT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`uid`);
+ -- ALTER TABLE `mailscanner`.`mtalog_ids` ADD `uid` BIGINT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`uid`);
 ALTER TABLE `mailscanner`.`mtalog` CHANGE `msg_id` `msg_id` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
 ALTER TABLE `mailscanner`.`mtalog` CHANGE `relay` `relay_to` VARCHAR(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
 ALTER TABLE `mailscanner`.`mtalog` CHANGE `dsn` `dsn` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
