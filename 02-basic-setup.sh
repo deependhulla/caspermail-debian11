@@ -140,6 +140,7 @@ apt-get -y install unbound 1>/dev/null 2>/dev/null
 /bin/cp -pR files/rootdir/* /
 systemctl restart unbound 1>/dev/null 2>/dev/null
 systemctl restart  rsyslog
+systemctl stop nginx
 systemctl restart  apache2
 systemctl restart  cron
 systemctl restart  mariadb
