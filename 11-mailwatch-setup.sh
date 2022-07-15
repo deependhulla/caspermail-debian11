@@ -41,7 +41,7 @@ sed -i "s/zaohm8ahC2/`cat /usr/local/src/mysql-mailscanner-pass`/" /usr/share/Ma
 sed -i "s/powermail\.mydomainname\.com/`hostname`/" /var/www/html/mailscanner/conf.php
 sed -i "s/powermail\.mydomainname\.com/`hostname`/"   /etc/MailScanner/MailScanner.conf
 
-echo "Resarting all service ...please wait..."
+echo "Resarting mailscanner and msmilter service ...please wait..."
 systemctl restart mailscanner msmilter.service 
 ##saferside chown
 chmod 666 /var/spool/MailScanner/incoming/SpamAssassin.cache.db 2>/dev/null 1>/dev/null
