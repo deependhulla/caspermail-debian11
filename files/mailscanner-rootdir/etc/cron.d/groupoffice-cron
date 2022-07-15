@@ -1,0 +1,3 @@
+MAILTO=""
+* * * * * www-data php /usr/share/groupoffice/cron.php /etc/groupoffice/config.php
+
