@@ -322,9 +322,9 @@ $dvdvalue=$dvdvalue.$dvddate."/".$dvdfile;
 function showp()
 {
 var urlx='viewfullmail.php?';
-urlx=urlx+'token=<?php echo $_SESSION['token']  ?>&';
-urlx=urlx+'id=<?php echo $url_id ?>&';
-urlx=urlx+'mpath=<?php echo $dvdvalue ?>&';
+urlx=urlx+'token=<?php echo $_SESSION['token'];  ?>&';
+urlx=urlx+'id=<?php echo $url_id; ?>&';
+urlx=urlx+'mpath=<?php echo $dvdvalue; ?>&';
 
 var x=encodeURI(urlx);
 var w=screen.width;var h=screen.height;
@@ -334,8 +334,8 @@ var livephonewin=window.open(x, "_blank", "toolbar=no, scrollbars=yes, resizable
 }</script>
 <?php
 
-
-echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail"><a href="#" onClick="showp();return false;">' . $dvdvalue . '</a></td></tr>' . "\n";}
+$dlx="&nbsp;&nbsp;&nbsp;<a href=\"downloademl.php?token=".$_SESSION['token']."&id=".$url_id."&\">EML Download</a>";
+echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail"><a href="#" onClick="showp();return false;">' . $dvdvalue . '</a> '.$dlx.'</td></tr>' . "\n";}
 else
 {
             echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail">' . $dvdvalue . '</td></tr>' . "\n";}
