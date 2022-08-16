@@ -2,12 +2,7 @@
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/lib/pear/Mail/mimeDecode.php';
 ini_set('memory_limit', MEMORY_LIMIT);
-
 require __DIR__ . '/login.function.php';
-
-#html_start(__('msgviewer06'), 0, false, false);
-?>
-<?php
 dbconn();
 if (!isset($_GET['id']) && !isset($_GET['amp;id'])) {
     die(__('nomessid06'));
@@ -95,7 +90,7 @@ $attachments = $Parser->getAttachments([$include_inline]);
 if (count($attachments) > 0) {
 print "<hr>";
     foreach ($attachments as $attachment) {
-        echo '<a href="downloadatt.php?folder='.$attach_dir.'&filex='.$attachment->getFilename().'">'.$attachment->getFilename().' ('.filesize($attach_dir.$attachment->getFilename()).' Bytes)</a><br />';
+        echo '<a href="downloadatt.php?token='.$_SESSION['token'].'&id='.$message_id.'&folder='.$attach_dir.'&filex='.$attachment->getFilename().'">'.$attachment->getFilename().' ('.filesize($attach_dir.$attachment->getFilename()).' Bytes)</a><br />';
     }
 }
 
