@@ -316,7 +316,29 @@ $dvddate=str_replace("-","",$dvddate);
 $dvdfile=$row[3];
 $dvdvalue=$dvdvalue.$dvddate."/".$dvdfile;
 }
-            echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail">' . $dvdvalue . '</td></tr>' . "\n";
+            if($fieldn=="Archive"){
+?>
+<script>
+function showp()
+{
+var urlx='viewfullmail.php?';
+urlx=urlx+'token=<?php echo $_SESSION['token']  ?>&';
+urlx=urlx+'id=<?php echo $url_id ?>&';
+urlx=urlx+'mpath=<?php echo $dvdvalue ?>&';
+
+var x=encodeURI(urlx);
+var w=screen.width;var h=screen.height;
+var h1=600;
+var w1=800;
+var livephonewin=window.open(x, "_blank", "toolbar=no, scrollbars=yes, resizable=yes, top="+h+", left="+w+", width="+w1+", height="+h1+"");
+}</script>
+<?php
+
+
+echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail"><a href="#" onClick="showp();return false;">' . $dvdvalue . '</a></td></tr>' . "\n";}
+else
+{
+            echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail">' . $dvdvalue . '</td></tr>' . "\n";}
         }
     }
 }
