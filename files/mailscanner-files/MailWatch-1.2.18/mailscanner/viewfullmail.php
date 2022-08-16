@@ -1,6 +1,4 @@
 <?php
-
-
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/lib/pear/Mail/mimeDecode.php';
 ini_set('memory_limit', MEMORY_LIMIT);
