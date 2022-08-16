@@ -138,6 +138,12 @@ if($gotrecord==1)
 $status_text1=$dblink->real_escape_string($status_text);
 $relay_to1=$dblink->real_escape_string($relay_to);
 
+if(!is_numeric($delay))
+ {
+ $delay=0;
+ }
+
+
 $sqlx="REPLACE INTO mtalog (`relay_date`,`relay_time`,`host`,`status_code`,`msg_id`,`to_address`,`relay_to`,`dsn`,`status_text`,`delay`) VALUES ('".$logx['logdate']."','".$logx['logtime']."','".$logx['loghost']."','".$status_code."','".$msg_id."','".$to_address."','".$relay_to1."','".$dsn."','".$status_text1."',SEC_TO_TIME('".$delay."'))";
 print "\n --> $sqlx \n";
 

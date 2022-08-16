@@ -47,11 +47,11 @@ relayhost =
 ##smtp_sasl_password_maps = hash:/etc/postfix/relay_passwd
 #smtp_sasl_security_options =
 
-mynetworks = 127.0.0.0/8
+#mynetworks = 127.0.0.0/8
 ## for webmin to use
 ##mynetworks = 127.0.0.0/8  192.168.1.253/32 192.168.1.67/32 192.168.1.200/32
 ## for best via file
-#mynetworks = hash:/etc/postfix/tcp_smtp_network_table_relay_network
+mynetworks = hash:/etc/postfix/tcp_smtp_network_table_relay_network
 
 # if ipv6 too
 ##mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
