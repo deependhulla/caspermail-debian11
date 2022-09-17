@@ -38,14 +38,15 @@ chmod 666 /var/spool/MailScanner/incoming/SpamAssassin.cache.db 1>/dev/null 2>/d
 
 sed -i "s/zaohm8ahC2/`cat /usr/local/src/mysql-mailscanner-pass`/" /var/www/html/mailscanner/conf.php
 sed -i "s/zaohm8ahC2/`cat /usr/local/src/mysql-mailscanner-pass`/" /usr/share/MailScanner/perl/custom/MailWatchConf.pm
-sed -i "s/powermail\.mydomainname\.com/`hostname`/" /var/www/html/mailscanner/conf.php
-sed -i "s/powermail\.mydomainname\.com/`hostname`/"   /etc/MailScanner/MailScanner.conf
-
+sed -i "s/zaohm8ahC2/`cat /usr/local/src/mysql-mailscanner-pass`/" /var/www/html/imagedata/index.php
+sed -i "s/powermail\.mydomainname\.com/`hostname -f`/" /var/www/html/mailscanner/conf.php
+sed -i "s/powermail\.mydomainname\.com/`hostname -f`/"   /etc/MailScanner/MailScanner.conf
 echo "Resarting mailscanner and msmilter service ...please wait..."
 systemctl restart mailscanner msmilter.service 
 ##saferside chown
 chmod 666 /var/spool/MailScanner/incoming/SpamAssassin.cache.db 2>/dev/null 1>/dev/null
 mysql < files/mailscanner-files/add-auth-track.sql 
+mysql < files/mailscanner-files/imageviewdata.sql 
 
 
 echo "All Setup Done ,please reboot the Server once";

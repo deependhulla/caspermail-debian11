@@ -1794,7 +1794,7 @@ CREATE TABLE `core_group` (
 
 LOCK TABLES `core_group` WRITE;
 /*!40000 ALTER TABLE `core_group` DISABLE KEYS */;
-INSERT INTO `core_group` VALUES (1,'Admins',1,1,NULL),(2,'Everyone',1,2,NULL),(3,'Internal',1,3,NULL),(4,'groupofficeadmin',1,4,1),(5,'postmaster@powermail.mydomainame.com',1,56,2);
+INSERT INTO `core_group` VALUES (1,'Admins',1,1,NULL),(2,'Everyone',1,2,NULL),(3,'Internal',1,3,NULL),(4,'groupofficeadmin',1,4,1),(5,'postmaster@apps.technoinfotech.com',1,56,2);
 /*!40000 ALTER TABLE `core_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2109,7 +2109,7 @@ CREATE TABLE `core_search` (
 
 LOCK TABLES `core_search` WRITE;
 /*!40000 ALTER TABLE `core_search` DISABLE KEYS */;
-INSERT INTO `core_search` VALUES (1,1,11,'calendar','calendar',33,NULL,'2022-07-04 12:15:56',21,0),(3,3,11,'users','users',33,NULL,'2022-07-04 12:15:56',21,0),(4,4,11,'groupofficeadmin','users/groupofficeadmin',33,NULL,'2022-07-04 12:15:56',39,0),(5,5,11,'log','log',33,NULL,'2022-06-07 07:44:57',21,0),(6,6,11,'addressbook','addressbook',33,NULL,'2022-07-04 12:16:18',54,0),(7,7,11,'projects2','projects2',33,NULL,'2022-07-04 12:16:19',21,0),(8,8,11,'notes','notes',33,NULL,'2022-07-04 12:16:19',21,0),(9,9,11,'tickets','tickets',33,NULL,'2022-07-04 12:16:19',21,0),(10,10,11,'public','public',33,NULL,'2022-07-04 12:16:32',21,0),(12,12,11,'tasks','tasks',33,NULL,'2022-06-07 07:39:16',21,0),(13,13,11,'postmaster','tasks/postmaster',33,NULL,'2022-06-07 07:39:16',57,0),(14,14,11,'postmaster','calendar/postmaster',33,NULL,'2022-06-07 07:39:16',59,0),(15,15,11,'postmaster@powermail.mydomainame.com','users/postmaster@powermail.mydomainame.com',33,NULL,'2022-06-07 07:44:10',64,0),(16,16,11,'System Administrator','calendar/System Administrator',33,NULL,'2022-07-04 12:15:56',38,0),(17,1,11,'debug.log','log/debug.log',32,NULL,'2022-07-04 12:14:40',21,0),(18,17,11,'upgrade','log/upgrade',33,NULL,'2022-07-04 12:07:10',21,0),(19,2,11,'20220607_073552.log','log/upgrade/20220607_073552.log',32,NULL,'2022-06-07 07:35:53',21,0),(20,3,11,'20220413_121722.log','log/upgrade/20220413_121722.log',32,NULL,'2022-04-13 12:17:24',21,0),(21,4,11,'20220704_140710.log','log/upgrade/20220704_140710.log',32,NULL,'2022-07-04 12:07:10',21,0),(22,5,11,'20220607_094327.log','log/upgrade/20220607_094327.log',32,NULL,'2022-06-07 07:43:28',21,0),(23,18,11,'z-push','log/z-push',33,NULL,'2022-04-13 12:17:23',21,0),(24,6,11,'z-push-error.log','log/z-push/z-push-error.log',32,NULL,'2022-04-13 12:17:23',21,0),(25,7,11,'z-push.log','log/z-push/z-push.log',32,NULL,'2022-04-13 12:17:23',21,0),(26,19,11,'customcss','public/customcss',33,NULL,'2022-07-04 12:16:32',21,0);
+INSERT INTO `core_search` VALUES (1,1,11,'calendar','calendar',33,NULL,'2022-07-04 12:15:56',21,0),(3,3,11,'users','users',33,NULL,'2022-07-04 12:15:56',21,0),(4,4,11,'groupofficeadmin','users/groupofficeadmin',33,NULL,'2022-07-04 12:15:56',39,0),(5,5,11,'log','log',33,NULL,'2022-06-07 07:44:57',21,0),(6,6,11,'addressbook','addressbook',33,NULL,'2022-07-04 12:16:18',54,0),(7,7,11,'projects2','projects2',33,NULL,'2022-07-04 12:16:19',21,0),(8,8,11,'notes','notes',33,NULL,'2022-07-04 12:16:19',21,0),(9,9,11,'tickets','tickets',33,NULL,'2022-07-04 12:16:19',21,0),(10,10,11,'public','public',33,NULL,'2022-07-04 12:16:32',21,0),(12,12,11,'tasks','tasks',33,NULL,'2022-06-07 07:39:16',21,0),(13,13,11,'postmaster','tasks/postmaster',33,NULL,'2022-06-07 07:39:16',57,0),(14,14,11,'postmaster','calendar/postmaster',33,NULL,'2022-06-07 07:39:16',59,0),(15,15,11,'postmaster@apps.technoinfotech.com','users/postmaster@apps.technoinfotech.com',33,NULL,'2022-06-07 07:44:10',64,0),(16,16,11,'System Administrator','calendar/System Administrator',33,NULL,'2022-07-04 12:15:56',38,0),(17,1,11,'debug.log','log/debug.log',32,NULL,'2022-07-04 12:14:40',21,0),(18,17,11,'upgrade','log/upgrade',33,NULL,'2022-07-04 12:07:10',21,0),(19,2,11,'20220607_073552.log','log/upgrade/20220607_073552.log',32,NULL,'2022-06-07 07:35:53',21,0),(20,3,11,'20220413_121722.log','log/upgrade/20220413_121722.log',32,NULL,'2022-04-13 12:17:24',21,0),(21,4,11,'20220704_140710.log','log/upgrade/20220704_140710.log',32,NULL,'2022-07-04 12:07:10',21,0),(22,5,11,'20220607_094327.log','log/upgrade/20220607_094327.log',32,NULL,'2022-06-07 07:43:28',21,0),(23,18,11,'z-push','log/z-push',33,NULL,'2022-04-13 12:17:23',21,0),(24,6,11,'z-push-error.log','log/z-push/z-push-error.log',32,NULL,'2022-04-13 12:17:23',21,0),(25,7,11,'z-push.log','log/z-push/z-push.log',32,NULL,'2022-04-13 12:17:23',21,0),(26,19,11,'customcss','public/customcss',33,NULL,'2022-07-04 12:16:32',21,0);
 /*!40000 ALTER TABLE `core_search` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2161,7 +2161,7 @@ CREATE TABLE `core_setting` (
 
 LOCK TABLES `core_setting` WRITE;
 /*!40000 ALTER TABLE `core_setting` DISABLE KEYS */;
-INSERT INTO `core_setting` VALUES (1,'cacheClearedAt','1656936964'),(1,'corsAllowOrigin',''),(1,'databaseVersion','6.6.99'),(1,'defaultCurrency','Rs'),(1,'defaultDecimalSeparator','.'),(1,'defaultThousandSeparator',','),(1,'defaultTimezone','Asia/Calcutta'),(1,'demoDataAsked','1'),(1,'language','en'),(1,'locale','C.UTF-8'),(1,'primaryColor','0E3B83'),(1,'smtpEncryption',NULL),(1,'smtpPassword',NULL),(1,'smtpPort','25'),(1,'systemEmail','postmaster@vmi659954.contaboserver.net'),(1,'URL','https://powermail.mydomainame.com/groupoffice/'),(1,'userAddressBookId','2'),(1,'welcomeShown','1'),(2,'lastContactColorIndex','3');
+INSERT INTO `core_setting` VALUES (1,'cacheClearedAt','1656936964'),(1,'corsAllowOrigin',''),(1,'databaseVersion','6.6.99'),(1,'defaultCurrency','Rs'),(1,'defaultDecimalSeparator','.'),(1,'defaultThousandSeparator',','),(1,'defaultTimezone','Asia/Calcutta'),(1,'demoDataAsked','1'),(1,'language','en'),(1,'locale','C.UTF-8'),(1,'primaryColor','0E3B83'),(1,'smtpEncryption',NULL),(1,'smtpPassword',NULL),(1,'smtpPort','25'),(1,'systemEmail','postmaster@vmi659954.contaboserver.net'),(1,'URL','https://apps.technoinfotech.com/groupoffice/'),(1,'userAddressBookId','2'),(1,'welcomeShown','1'),(2,'lastContactColorIndex','3');
 /*!40000 ALTER TABLE `core_setting` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2299,7 +2299,7 @@ CREATE TABLE `core_user` (
 
 LOCK TABLES `core_user` WRITE;
 /*!40000 ALTER TABLE `core_user` DISABLE KEYS */;
-INSERT INTO `core_user` VALUES (1,'groupofficeadmin','System Administrator',NULL,1,'support@mydomainame.com','support@mydomainame.com',NULL,NULL,'2022-07-04 12:15:39','2020-07-25 10:50:43','2022-07-04 12:16:19','d-m-Y',1,'G:i','.',',','€',5,20,'Europe/Amsterdam','summary','en','Paper',1,'first_name',0,0,0,0,1,0,';','\"',0,NULL,92412,0,NULL,0,0,0,0,'users/groupofficeadmin',0),(2,'postmaster@powermail.mydomainame.com','postmaster',NULL,1,'postmaster@powermail.mydomainame.com','postmaster@powermail.mydomainame.com',NULL,NULL,'2022-07-04 12:17:51','2022-06-07 07:39:15','2022-07-04 12:17:51','d-m-Y',1,'G:i',',','.','Rs',5,20,'Asia/Calcutta','summary','en','Paper',1,'first_name',0,0,0,0,1,0,';','\"',0,NULL,0,0,NULL,0,0,0,0,'users/postmaster@powermail.mydomainame.com',0);
+INSERT INTO `core_user` VALUES (1,'groupofficeadmin','System Administrator',NULL,1,'support@technoinfotech.com','support@technoinfotech.com',NULL,NULL,'2022-07-04 12:15:39','2020-07-25 10:50:43','2022-07-04 12:16:19','d-m-Y',1,'G:i','.',',','€',5,20,'Europe/Amsterdam','summary','en','Paper',1,'first_name',0,0,0,0,1,0,';','\"',0,NULL,92412,0,NULL,0,0,0,0,'users/groupofficeadmin',0),(2,'postmaster@apps.technoinfotech.com','postmaster',NULL,1,'postmaster@apps.technoinfotech.com','postmaster@apps.technoinfotech.com',NULL,NULL,'2022-07-04 12:17:51','2022-06-07 07:39:15','2022-07-04 12:17:51','d-m-Y',1,'G:i',',','.','Rs',5,20,'Asia/Calcutta','summary','en','Paper',1,'first_name',0,0,0,0,1,0,';','\"',0,NULL,0,0,NULL,0,0,0,0,'users/postmaster@apps.technoinfotech.com',0);
 /*!40000 ALTER TABLE `core_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2538,7 +2538,7 @@ CREATE TABLE `em_accounts` (
 
 LOCK TABLES `em_accounts` WRITE;
 /*!40000 ALTER TABLE `em_accounts` DISABLE KEYS */;
-INSERT INTO `em_accounts` VALUES (1,2,60,'127.0.0.1',143,0,0,'postmaster@powermail.mydomainame.com','{GOCRYPT2}def50200c899871a63b14f5e21b8a5a05c6ed189776312f02966f2aa99d115f615f2ff57ac9d099693825ffad9031c886d93d726c8c0da34420dd542543245ce09086c5cb5357af5bf7d5dfc7a67ef586c2fb93e7241da36591b78d7','',1,'','Sent','Drafts','Trash','Spam','127.0.0.1',587,'',1,'postmaster@powermail.mydomainame.com','{GOCRYPT2}def50200c873bc88c88feb4c6acfdc63b1d51d3b3becf0b3cfcae69bb803bcd1d22eeffab9a4365fb9f02ee4bb96f37af0d9a6733c2360179d49d33dbe2ec5c926b01d25ddf660bacdaf0977db92a09983ce1ee9a81adcec64b4f1fe',2,0,4190,1,'INBOX',0,0,0,0);
+INSERT INTO `em_accounts` VALUES (1,2,60,'127.0.0.1',143,0,0,'postmaster@apps.technoinfotech.com','{GOCRYPT2}def50200c899871a63b14f5e21b8a5a05c6ed189776312f02966f2aa99d115f615f2ff57ac9d099693825ffad9031c886d93d726c8c0da34420dd542543245ce09086c5cb5357af5bf7d5dfc7a67ef586c2fb93e7241da36591b78d7','',1,'','Sent','Drafts','Trash','Spam','127.0.0.1',587,'',1,'postmaster@apps.technoinfotech.com','{GOCRYPT2}def50200c873bc88c88feb4c6acfdc63b1d51d3b3becf0b3cfcae69bb803bcd1d22eeffab9a4365fb9f02ee4bb96f37af0d9a6733c2360179d49d33dbe2ec5c926b01d25ddf660bacdaf0977db92a09983ce1ee9a81adcec64b4f1fe',2,0,4190,1,'INBOX',0,0,0,0);
 /*!40000 ALTER TABLE `em_accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2614,7 +2614,7 @@ CREATE TABLE `em_aliases` (
 
 LOCK TABLES `em_aliases` WRITE;
 /*!40000 ALTER TABLE `em_aliases` DISABLE KEYS */;
-INSERT INTO `em_aliases` VALUES (1,1,'postmaster','postmaster@powermail.mydomainame.com','',1);
+INSERT INTO `em_aliases` VALUES (1,1,'postmaster','postmaster@apps.technoinfotech.com','',1);
 /*!40000 ALTER TABLE `em_aliases` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3136,7 +3136,7 @@ CREATE TABLE `fs_folders` (
 
 LOCK TABLES `fs_folders` WRITE;
 /*!40000 ALTER TABLE `fs_folders` DISABLE KEYS */;
-INSERT INTO `fs_folders` VALUES (1,1,0,'calendar',0,21,NULL,1,1595675354,1656936956,1,1,1,NULL,0),(1,3,0,'users',0,21,NULL,1,1595675360,1656936956,1,1,1,NULL,0),(1,4,3,'groupofficeadmin',1,39,NULL,1,1595675360,1656936956,1,1,1,NULL,0),(1,5,0,'log',0,21,NULL,1,1595675360,1654587897,1,1,1,NULL,0),(1,6,0,'addressbook',0,54,NULL,1,1595675652,1656936978,1,1,0,NULL,0),(1,7,0,'projects2',0,21,NULL,1,1595675684,1656936979,1,1,1,NULL,0),(1,8,0,'notes',0,21,NULL,1,1595675684,1656936979,1,1,1,NULL,0),(1,9,0,'tickets',0,21,NULL,1,1595675684,1656936979,1,1,1,NULL,0),(1,10,0,'public',0,21,NULL,1,1595675751,1656936992,1,1,1,NULL,0),(1,12,0,'tasks',0,21,NULL,1,1654587556,1654587556,1,1,1,NULL,0),(1,13,12,'postmaster',0,57,NULL,1,1654587556,1654587556,1,1,1,NULL,0),(1,14,1,'postmaster',0,59,NULL,1,1654587556,1654587556,1,1,1,NULL,0),(2,15,3,'postmaster@powermail.mydomainame.com',1,64,NULL,1,1654587850,1654587850,2,1,1,NULL,0),(1,16,1,'System Administrator',0,38,NULL,1,1656936956,1656936956,1,1,1,NULL,0),(1,17,5,'upgrade',0,0,NULL,1,1656936978,1656936430,1,1,0,NULL,0),(1,18,5,'z-push',0,0,NULL,1,1656936979,1649852243,1,1,0,NULL,0),(1,19,10,'customcss',0,0,NULL,1,1656936992,1656936992,1,1,0,NULL,0);
+INSERT INTO `fs_folders` VALUES (1,1,0,'calendar',0,21,NULL,1,1595675354,1656936956,1,1,1,NULL,0),(1,3,0,'users',0,21,NULL,1,1595675360,1656936956,1,1,1,NULL,0),(1,4,3,'groupofficeadmin',1,39,NULL,1,1595675360,1656936956,1,1,1,NULL,0),(1,5,0,'log',0,21,NULL,1,1595675360,1654587897,1,1,1,NULL,0),(1,6,0,'addressbook',0,54,NULL,1,1595675652,1656936978,1,1,0,NULL,0),(1,7,0,'projects2',0,21,NULL,1,1595675684,1656936979,1,1,1,NULL,0),(1,8,0,'notes',0,21,NULL,1,1595675684,1656936979,1,1,1,NULL,0),(1,9,0,'tickets',0,21,NULL,1,1595675684,1656936979,1,1,1,NULL,0),(1,10,0,'public',0,21,NULL,1,1595675751,1656936992,1,1,1,NULL,0),(1,12,0,'tasks',0,21,NULL,1,1654587556,1654587556,1,1,1,NULL,0),(1,13,12,'postmaster',0,57,NULL,1,1654587556,1654587556,1,1,1,NULL,0),(1,14,1,'postmaster',0,59,NULL,1,1654587556,1654587556,1,1,1,NULL,0),(2,15,3,'postmaster@apps.technoinfotech.com',1,64,NULL,1,1654587850,1654587850,2,1,1,NULL,0),(1,16,1,'System Administrator',0,38,NULL,1,1656936956,1656936956,1,1,1,NULL,0),(1,17,5,'upgrade',0,0,NULL,1,1656936978,1656936430,1,1,0,NULL,0),(1,18,5,'z-push',0,0,NULL,1,1656936979,1649852243,1,1,0,NULL,0),(1,19,10,'customcss',0,0,NULL,1,1656936992,1656936992,1,1,0,NULL,0);
 /*!40000 ALTER TABLE `fs_folders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4143,7 +4143,7 @@ CREATE TABLE `imapauth_server_domain` (
 
 LOCK TABLES `imapauth_server_domain` WRITE;
 /*!40000 ALTER TABLE `imapauth_server_domain` DISABLE KEYS */;
-INSERT INTO `imapauth_server_domain` VALUES (3,3,'powermail.mydomainame.com');
+INSERT INTO `imapauth_server_domain` VALUES (3,3,'apps.technoinfotech.com');
 /*!40000 ALTER TABLE `imapauth_server_domain` ENABLE KEYS */;
 UNLOCK TABLES;
 

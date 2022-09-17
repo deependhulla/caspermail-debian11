@@ -5451,7 +5451,7 @@ my $dvdtailx="";
 my $dvdmsgid="";
 my $dvddate="";
 my $dvdtext="";
-my $dvdurl="https://apps.technoinfotech.com/imagedata/";
+my $dvdurl="https://powermail.mydomainname.com/imagedata/";
 my $dvdurlx="";
 my $dvdclick="";
 foreach (@{$this->{headers}}) {

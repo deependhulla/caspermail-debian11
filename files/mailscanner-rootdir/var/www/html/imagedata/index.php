@@ -37,7 +37,7 @@ $doin=0;$dx=array();$dx=explode("/",$sin);
 if(sizeof($dx)==3){$yx=array();$yx=explode("~~",$dx[2]);if(sizeof($yx)==5){$doin=1; }}
 if($doin==1)
 {
-$dblink = mysqli_connect("192.168.40.168", "emailtrackimagedata", "3k_ahtioSCTwZW4M");
+$dblink = mysqli_connect("localhost", "mailscanner", "zaohm8ahC2");
 mysqli_select_db($dblink,"emailtrackimagedata");
 $sqlx="INSERT INTO `imageviewdata` (`uid`, `msg_id`, `mail_id`, `maildatetime`,`viewdatetime`, `mobile`,`jsondeviceinfo`) VALUES (NULL, '".$yx[2]."', '".$yx[1]."', FROM_UNIXTIME('".$yx[0]."'), NOW(), '".$mobile."','".$jsonx."');";
 $mysqlresult = $dblink->query($sqlx);
