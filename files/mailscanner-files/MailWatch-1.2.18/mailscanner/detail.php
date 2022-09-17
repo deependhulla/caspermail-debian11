@@ -436,8 +436,9 @@ if (false !== $sth1 && $sth1->num_rows > 0) {
     echo "   </tr>\n";
     while ($row = $sth1->fetch_row()) {
         echo '    <tr>' . "\n";
-for ($f = 0; $f < $sth1->field_count; $f++) {        
-echo '     <td class="detail" align="left">' . $row[$f] . '</td>' . "\n"; 
+for ($f = 0; $f < $sth1->field_count; $f++) {
+$row[$f]=htmlentities($row[$f]);
+echo '     <td class="detail" align="left"> ' . $row[$f] . '</td>' . "\n"; 
 }
         echo '    </tr>' . "\n";
     }
