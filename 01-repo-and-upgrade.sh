@@ -22,7 +22,7 @@ echo "deb http://security.debian.org/debian-security bullseye-security main cont
 apt-get update
 apt-get -y upgrade
 ## few tools need for basic mangement
-apt-get -y install vim curl git software-properties-common dirmngr screen mc apt-transport-https lsb-release ca-certificates openssh-server iptraf-ng telnet iputils-ping debconf-utils pwgen xfsprogs iftop htop multitail net-tools elinks wget 
+apt-get -y install vim curl git software-properties-common dirmngr screen mc apt-transport-https lsb-release ca-certificates openssh-server iptraf-ng telnet iputils-ping debconf-utils pwgen xfsprogs iftop htop multitail net-tools elinks wget pssh 
 
 
 
