@@ -84,7 +84,7 @@ $logx['logmsg']=trim($mlinedata);
 $gotrecord=0;
 #print_r($logx);
 ############################################
-if($logx['logname']=='postfix/smtp')
+if($logx['logname']=='postfix/smtp' || $logx['logname']=='postfix/pipe')
 {
 #print_r($logx);
 $datax=array();

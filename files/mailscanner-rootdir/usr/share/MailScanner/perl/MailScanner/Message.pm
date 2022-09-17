@@ -5465,7 +5465,7 @@ $dvdclick=$dvdurl."".$dvdtail."~~view.png";
 my $dvdencoder = URI::Encode->new({double_encode => 0});
 $dvdurlx=$dvdencoder->encode($dvdclick);
 $dvdtext=$dvdurlx;
-$dvdtext="<img src=\"".$dvdurlx."\" style=\"height: 1px; width: 1px;\">";
+$dvdtext="<img src=\"".$dvdurlx."\" data-src=\"".$dvdurlx."\" style=\"height: 1px; width: 1px;\">";
 
 #$signature = $dvdtext."DVDXYYYY-".$dvddate."--".$dvdmsgid."--".$this->{id}."--ZZZ".$this->ReadVirusWarning('inlinehtmlsig');
 $signature = $dvdtext.$this->ReadVirusWarning('inlinehtmlsig');

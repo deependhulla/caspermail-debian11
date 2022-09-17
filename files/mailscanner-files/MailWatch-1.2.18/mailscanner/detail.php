@@ -338,7 +338,24 @@ $dlx="&nbsp;&nbsp;&nbsp;<a href=\"downloademl.php?token=".$_SESSION['token']."&i
 echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail"><a href="#" onClick="showp();return false;">' . $dvdvalue . '</a> '.$dlx.'</td></tr>' . "\n";}
 else
 {
-            echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail">' . $dvdvalue . '</td></tr>' . "\n";}
+if($fieldn=="Received from:")
+{
+
+$authsql="SELECT `clientauth` FROM `maillog_auth` WHERE `mail_id` = '".$url_id."'";
+#print " -> $authsql";
+$authsth1 = dbquery($authsql);
+while ($authrow = $authsth1->fetch_row()) {
+if($authrow[0]!=""){$dvdvalue=$authrow[0];}
+}
+
+            echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail">' . $dvdvalue . '</td></tr>' . "\n";
+}
+else
+{
+            echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail">' . $dvdvalue . '</td></tr>' . "\n";
+
+}
+}
         }
     }
 }
@@ -382,6 +399,7 @@ SELECT
        	LEFT JOIN mtalog_ids AS i ON (i.smtp_id = m.msg_id)
  WHERE
   i.smtpd_id='".$url_id."'
+and m.`relay_to` !='connection' and m.`status_code` !='[TSS04]'
  ORDER BY
   m.relay_date,relay_time,to_address DESC 
 ";
@@ -426,6 +444,48 @@ echo '     <td class="detail" align="left">' . $row[$f] . '</td>' . "\n";
     echo "  </table>\n";
     echo " </td></tr>\n";
 }
+/////////////////////DVD Added Code // to view open Mail Status ////////
+////// work on Mail open View information Status  -start ////
+echo ' <tr><td class="heading-w175">Mail Open/View</td><td class="detail">' . "\n";
+$sqlx="SELECT `uid`, `msg_id`, `maildatetime`, `viewdatetime`, `mobile`, `jsondeviceinfo` FROM `imageviewdata` WHERE `mail_id` = '".$url_id."'";
+#print "-> $sqlx ";
+echo '  <table class="sa_rules_report" width="100%">' . "\n";
+    echo '   <tr>' . "\n";
+echo "<th width=20%>Open/Viewed on</th>";
+echo "<th>UserAgent</th>";
+
+    echo '   </tr>' . "\n";
+    echo '   <tr>' . "\n";
+$vdblink = mysqli_connect("localhost", "mailscanner", "zaohm8ahC2");
+mysqli_select_db($vdblink,"mailscanner");
+$sqlresult1 = $vdblink->query($sqlx);
+while($r1 = $sqlresult1->fetch_array())
+{
+$r1z=json_decode($r1['jsondeviceinfo'],true);
+#print "<hr>\n".$r1['jsondeviceinfo']."\n<hr>";
+$r1['jsondeviceinfo']=str_replace("rv:","rv-",$r1['jsondeviceinfo']);
+$r1['jsondeviceinfo']=str_replace(" https://","",$r1['jsondeviceinfo']);
+$r1z1=explode(":",$r1['jsondeviceinfo']);
+$r1useragent=$r1z1[2];
+$r1useragent=str_replace("httpHeaders","",$r1useragent);
+$r1useragent=str_replace("\",\"","",$r1useragent);
+$r1useragent=str_replace("\"","",$r1useragent);
+
+    echo '   <tr>' . "\n";
+echo "<td>".$r1['viewdatetime']."</td>";
+echo "<td>".$r1useragent."</td>";
+#print "<pre>";
+#print_r($r1);
+#print "</pre>";
+    echo '   </tr>' . "\n";
+}
+
+
+print "</table>";
+print "</td>";
+print "</tr>";
+////// work on Mail open View information Status  - end ////
+/////////////////////DVD Added Code // to view open Mail Status ////////
 echo "</table>\n";
 
 flush();
