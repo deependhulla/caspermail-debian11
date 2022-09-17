@@ -49,7 +49,8 @@ define('USER_SELECTABLE_LANG', 'en');
 // Session Timeout - Sets the global session timeout value, default is 600 sec (10 minutes) if not defined
 // Range is 0 to 99999 seconds.  Setting to 0 will disable session timeout and active session statuses.
 // This can also be set individually per user in the MailWatch GUI for greater flexibility.
-define('SESSION_TIMEOUT', 600);
+//define('SESSION_TIMEOUT', 600);
+define('SESSION_TIMEOUT', 0);
 
 // MaxMind License key
 // A free license key from MaxMind is required to download GeoLite2 data

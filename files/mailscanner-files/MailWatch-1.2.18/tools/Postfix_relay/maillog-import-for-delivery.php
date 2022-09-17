@@ -157,8 +157,135 @@ exit;
 }
 ###########Work on insert over ################################################################
 ###########################################################################
+###########################################################################
+###########################################################################
+###########################################################################
+###########################################################################
+##### Work for sasl User auth info to get ########################################################
+$gotrecord=0;
+$getsaslauthuser="";
+$getsaslmailid="";
+$getauthtype="";
+############################################
+if($logx['logname']=='postfix/smtpd' || $logx['logname']=='postfix/submission/smtpd')
+{
+#print_r($logx);
+$datax=array();
+$datax=explode(":",$logx['logmsg']);
+$datax1=explode(" ",$datax[0]);
+#print "\n---\n"; 
+#print_r($datax1);
+if(sizeof($datax1)==1)
+{
+$datax2=array();
+$datax2=explode(" ",$logx['logmsg']);
+if(sizeof($datax2)==4)
+{
+$datax3=array();
+$datax3=explode("=",$datax2[3]);
+if($datax3[0]=="sasl_username")
+{
+#print_r($logx);
+#print "\n---\n"; 
+#print_r($datax1);
+#print "\n---\n"; 
+#print_r($datax2);
+#print_r($datax3);
+#print "\nXXXXXXXXX\n";
+$gotrecord=1;
+$getsaslauthuser=$datax3[1];
+$getsaslmailid=$datax1[0];
+$getauthtype='465';
+if($logx['logname']=='postfix/submission/smtpd')
+{
+$getauthtype='587';
+}
+#print "\n --> $getsaslauthuser--> $getsaslmailid --> $getauthtype --> \n";
+
+}
+}
+}
 
 
+}
+/////logname -over
+###########################################################################
+##########Work on Insert started #################################################################
+if($gotrecord==1)
+{
+
+$status_text1=$dblink->real_escape_string($status_text);
+$relay_to1=$dblink->real_escape_string($relay_to);
+
+$sqlx="REPLACE INTO maillog_auth (`mail_id`,`auth_type`,`clientauth`) VALUES ('".$getsaslmailid."','".$getauthtype."','".$getsaslauthuser."')";
+print "\n --> $sqlx \n";
+$upqueryresult = $dblink->query($sqlx);
+if (!$upqueryresult)
+{
+print "\n Error for $sqlx \n ".mysqli_error($dblink)." \n";
+exit;
+}
+
+}
+###########Work on insert over ################################################################
+##### Work for sasl User auth info to get ########################################################
+###########################################################################
+
+
+### work for Caser ID for mapping --start
+$gotrecord=0;
+$smtpd_id="";
+$smtp_id="";
+if($logx['logname']=='postfix/cleanup')
+{
+#print_r($logx);
+$datax=array();
+$datax=explode(":",$logx['logmsg']);
+$datax1=explode(" ",$datax[0]);
+#print "\n---\n"; 
+#print_r($datax);
+$headerbox=$datax[2];
+$headerbox=str_replace(" ","",$headerbox);
+if($headerbox=="headerX-CASPER-MailScanner-ID")
+{
+#print "\n---------------\n";
+#print_r($datax);
+$datax3=array();
+$datax3=explode(" ",$datax[3]);
+#print_r($datax3);
+
+$smtp_id=$datax[0];
+$smtpd_id=$datax3[1];
+$gotrecord=1;
+}
+
+##########Work on Insert started #################################################################
+if($gotrecord==1)
+{
+ 
+$status_text1=$dblink->real_escape_string($status_text);
+$relay_to1=$dblink->real_escape_string($relay_to);
+
+$sqlx="REPLACE INTO mtalog_ids (`smtpd_id`,`smtp_id`) VALUES ('".$smtpd_id."','".$smtp_id."')";
+print "\n --> $sqlx \n";
+$upqueryresult = $dblink->query($sqlx);
+if (!$upqueryresult)
+{
+print "\n Error for $sqlx \n ".mysqli_error($dblink)." \n";
+exit;
+}
+
+}
+###########Work on insert over ################################################################
+
+
+}
+### work for Caser ID for mapping --end
+###########################################################################
+###########################################################################
+###########################################################################
+###########################################################################
+###########################################################################
 ////////// while loop over
 }
         $lines++;

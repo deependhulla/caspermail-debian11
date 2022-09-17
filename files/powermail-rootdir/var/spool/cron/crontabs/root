@@ -3,4 +3,4 @@ MAILTO=""
 #* * * * * /usr/share/webmin/powermail/cron-for-push-to-other-mailserver.sh
 1 5 * * * /usr/local/src/cert-renew-and-restart.sh
 1 6 * * * /usr/local/src/disk-space-alert.sh
-*/5 * * * * /usr/local/bin/mailwatch-milter-relay-tail-process.sh
+* * * * * /usr/local/bin/mailwatch-milter-relay-tail-process.sh
