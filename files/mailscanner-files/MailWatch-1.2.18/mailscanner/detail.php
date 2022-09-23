@@ -71,7 +71,7 @@ $sql = "
  SELECT
  --  DATE_FORMAT(timestamp, '" . DATE_FORMAT . ' ' . TIME_FORMAT . "') AS '" . __('receivedon04') . "',
   DATE_FORMAT(timestamp, '%Y-%m-%d %H:%i:%s') AS '" . __('receivedon04') . "',
-  hostname AS '" . __('receivedby04') . "',
+  hostname AS 'Received Auth:',
   clientip AS '" . __('receivedfrom04') . "',
 --  headers '" . __('receivedvia04') . "',
   id AS '" . __('id04') . "',
@@ -338,7 +338,7 @@ $dlx="&nbsp;&nbsp;&nbsp;<a href=\"downloademl.php?token=".$_SESSION['token']."&i
 echo '<tr><td class="heading-w175">' . $fieldn . '</td><td class="detail"><a href="#" onClick="showp();return false;">' . $dvdvalue . '</a> '.$dlx.'</td></tr>' . "\n";}
 else
 {
-if($fieldn=="Received from:")
+if($fieldn=="Received Auth:")
 {
 
 $authsql="SELECT `clientauth` FROM `maillog_auth` WHERE `mail_id` = '".$url_id."'";
@@ -457,7 +457,7 @@ echo "<th>UserAgent</th>";
 
     echo '   </tr>' . "\n";
     echo '   <tr>' . "\n";
-$vdblink = mysqli_connect("localhost", "mailscanner", "zaohm8ahC2");
+$vdblink = mysqli_connect("localhost", "mailscanner", "ohda1Yei");
 mysqli_select_db($vdblink,"mailscanner");
 $sqlresult1 = $vdblink->query($sqlx);
 while($r1 = $sqlresult1->fetch_array())
