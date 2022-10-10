@@ -2,7 +2,7 @@
 
 MYSQLPASSVPOP=`pwgen -c -1 8`
 echo $MYSQLPASSVPOP > /usr/local/src/mariadb-mydbadmin-pass
-echo "mydbadmin password in /usr/local/src/mairadb-mydbadmin-pass"
+echo "mydbadmin password in /usr/local/src/mariadb-mydbadmin-pass"
 
 echo "GRANT ALL PRIVILEGES ON *.* TO mydbadmin@localhost IDENTIFIED BY '$MYSQLPASSVPOP'" with grant option | mysql -uroot
 mysqladmin -uroot reload
