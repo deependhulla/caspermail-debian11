@@ -1,11 +1,11 @@
 #!/bin/sh
 
 
-wget https://github.com/MailScanner/v5/releases/download/5.4.4-1/MailScanner-5.4.4-1.noarch.deb -O /opt/MailScanner-5.4.4-1.noarch.deb
-wget -c https://github.com/MailScanner/v5/releases/download/5.4.4-1/MailScanner-5.4.4-1.noarch.deb.sig -O /opt/MailScanner-5.4.4-1.noarch.deb.sig
+wget https://github.com/MailScanner/v5/releases/download/5.4.5-3/MailScanner-5.4.5-3.noarch.deb -O /opt/MailScanner-5.4.5-3.noarch.deb
+wget -c https://github.com/MailScanner/v5/releases/download/5.4.5-3/MailScanner-5.4.5-3.noarch.deb.sig -O /opt/MailScanner-5.4.5-3.noarch.deb.sig
 #sh files/mailscanner-files/extra-perl-modules.sh
 
-dpkg -i /opt/MailScanner-5.4.4-1.noarch.deb
+dpkg -i /opt/MailScanner-5.4.5-3.noarch.deb
 /usr/sbin/ms-configure --MTA=postfix --installClamav=N --installCPAN=Y --ignoreDeps=N --ramdiskSize=0
 ##backup Message.pm as we are updating with Opentrack URL-Images
 /bin/cp /usr/share/MailScanner/perl/MailScanner/Message.pm /usr/local/src/MailScanner-Orginal-Message-`date +%s`.pm 
@@ -43,7 +43,7 @@ chown postfix:root /var/spool/postfix/
 chmod 744 /var/spool/postfix/incoming/
 chmod 744 /var/spool/postfix/hold/
 chown -R postfix  /var/log/clamav 2>/dev/null
-/bin/cp -pRv files/mailscanner-rootdir/* /
+/bin/cp -pR files/mailscanner-rootdir/* /
 sed -i "s/powermail\.mydomainname\.com/`hostname -f`/"   /usr/share/MailScanner/perl/MailScanner/Message.pm
 
 ## Mail-Archive Tool
