@@ -37,6 +37,13 @@ chown postfix.postfix /var/spool/MailScanner/incoming
 chown postfix.postfix /var/spool/MailScanner/quarantine
 chown postfix:root /var/spool/postfix/
 
+## for Update
+#chown -R postfix:mtagroup /var/spool/MailScanner/milterin
+#chown -R postfix:mtagroup /var/spool/MailScanner/milterout
+#chown -R postfix:postfix /var/spool/MailScanner/quarantine
+## Check version
+#perl -MSendmail::PMilter -le 'print $Sendmail::PMilter::VERSION'
+
 #/bin/cp -pRv files/mailscanner-files/ms-etc/* /etc/MailScanner/
 
 ## so that mailwatch can read
@@ -71,6 +78,9 @@ systemctl restart opendkim
 
 ##force one more time
 chmod 666 /var/spool/MailScanner/incoming/SpamAssassin.cache.db 2>/dev/null 1>/dev/null
+
+## For Updating All Perl Extra Module to Latest Version
+/usr/sbin/ms-configure --update
 
 systemctl enable postfix
 systemctl restart postfix
