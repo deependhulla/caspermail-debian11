@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+sed -i "s/LimitNOFILE=32768/LimitNOFILE=62768/"   /usr/lib/systemd/system/mariadb.service
+systemctl daemon-reload
+
 MYSQLPASSVPOP=`pwgen -c -1 8`
 echo $MYSQLPASSVPOP > /usr/local/src/mariadb-mydbadmin-pass
 echo "mydbadmin password in /usr/local/src/mariadb-mydbadmin-pass"

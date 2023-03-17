@@ -8,6 +8,9 @@ sysctl -w net.ipv6.conf.default.disable_ipv6=1
 ## to not use Swap use more RAM
 sysctl vm.swappiness=0
 
+## instead of 1024 default 
+ulimit -S -n 40000
+
 ## for tmp files of groupoffice
 mkdir /tmp/groupoffice
 chown www-data:www-data /tmp/groupoffice
