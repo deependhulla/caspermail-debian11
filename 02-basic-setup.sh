@@ -124,6 +124,12 @@ sed -i "s/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = 
 sed -i "s/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = E_ERROR/" /etc/php/7.4/fpm/php.ini
 sed -i "s/error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT/error_reporting = E_ERROR/" /etc/php/7.4/apache2/php.ini
 
+
+
+sed -i "s/memory_limit = 128M/memory_limit = 512M/" /etc/php/7.4/apache2/php.ini
+sed -i "s/post_max_size = 100M/post_max_size = 100M/" /etc/php/7.4/apache2/php.ini
+sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 50M/" /etc/php/7.4/apache2/php.ini
+
 ## install insstead of systemd-timesyncd for better time sync
 apt-get install chrony -y 2>/dev/null 1>/dev/null
 ## -x option added to allow in LXC

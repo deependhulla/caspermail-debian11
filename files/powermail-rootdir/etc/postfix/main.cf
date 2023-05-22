@@ -119,7 +119,7 @@ virtual_transport = dovecot
 dovecot_destination_recipient_limit = 1
 ## for NFS to deliver one mail at a time : Postfix to only deliver to the same recipient one at a time.
 #dovecot_destination_concurrency_limit = 1
-message_size_limit = 20480000
+message_size_limit = 51200000
 #content_filter = smtp-amavis:[127.0.0.1]:10024
 
 
