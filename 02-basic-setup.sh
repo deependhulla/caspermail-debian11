@@ -133,7 +133,7 @@ sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 50M/" /etc/php/7.4/apac
 ## install insstead of systemd-timesyncd for better time sync
 apt-get install chrony -y 2>/dev/null 1>/dev/null
 ## -x option added to allow in LXC
-echo 'DAEMON_OPTS="-F 1 -x "' >  /etc/default/chrony 
+##echo 'DAEMON_OPTS="-F 1 -x "' >  /etc/default/chrony 
 systemctl restart chrony 
 
 /bin/cp -p files/extra-files/etc-config-backup.sh /bin/
