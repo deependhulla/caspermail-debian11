@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+##Updated : 07-Aug-2023
 use DBI;
 use WebminCore;
   init_config();
@@ -401,7 +402,7 @@ print ui_table_row('Enter new password',ui_password('vuserpass', undef, 40));
 print ui_table_row('Enter new password again',ui_password('vuserpasscheck', undef, 40));
 print ui_table_row('Fullname / Info',ui_textbox('vuserfullname', $in{'vuserfullname'}, 40).'');
 print ui_table_row('Disk Quota [0 means Unlimited]',ui_bytesbox('vuserdiskquota', $in{'vuserdiskquota'}, 40).' (1073741824 bytes = 1GB)');
-print ui_hidden('fun', 'saveadduser', 40);
+print ui_hidden('fun', 'saveadduser');
 #print ui_table_row('&nbsp;',ui_submit('Add new email user', 'fun2'));
 print ui_table_row("<input type='submit' name='show1' value='Add New Email User' onClick='return Val_pass(\"".$vdomain."\");'>");
 print ui_table_end();
@@ -589,7 +590,7 @@ print ui_table_start('Add a new Email Alias @'.$vdomain, undef, 2);
 print ui_table_row('Forward mails of',ui_textbox('vmailof', $in{'vmailof'}, 40).'@'.$in{'vpopmaildomain'}.'');
 print ui_table_row('To destination email',ui_textbox('vmailto', $in{'vmailto'}, 40).'(Full email address)<br>
 Example : <b>  newuser@'.$vdomain.'</b>, Add only One email id first, latter update with multiple address using edit feature.');
-print ui_hidden('fun', 'savenewalias', 40);
+print ui_hidden('fun', 'savenewalias');
 print ui_table_row('&nbsp;',ui_submit('Add new email alias', 'fun2'));
 
  print ui_table_end();
@@ -635,8 +636,8 @@ print ui_table_start('Edit Email Alias '.$valiasname, undef, 2);
 print ui_table_row('To destination email(s)',ui_textarea('forwardto', $forwardto, 5,40).'Full email address, with comma sepreate ');
 print ui_table_row('Account Active',ui_checkbox('useractive', '1','',$useractive).' By un-checking this box account is disable.');
 
-print ui_hidden('fun', 'saveupdatealias', 40);
-print ui_hidden('vusername', $in{'vusername'}, 40);
+print ui_hidden('fun', 'saveupdatealias');
+print ui_hidden('vusername', $in{'vusername'});
 print ui_table_row('&nbsp;',ui_submit('Save Email Alias', 'fun2'));
 
 print ui_table_row('&nbsp;',ui_button('Delete Alias', 'fun2',undef,'onClick=delalias();return false;"'));
@@ -655,7 +656,7 @@ if($in{'fun'} eq "searchuser")
 print "<br>";
 print ui_table_start('Search Email User @'.$vdomain, undef, 2);
 print ui_table_row('Enter some text for username search',ui_textbox('susername', $in{'susername'}, 40));
-print ui_hidden('fun', 'listuser', 40);
+print ui_hidden('fun', 'listuser');
 print ui_table_row('&nbsp;',ui_submit('Search email user', 'fun2'));
 
  print ui_table_end();
@@ -936,8 +937,8 @@ print ui_table_row('While Forward save a copy in Inbox',ui_checkbox('forwardsave
 print ui_table_row('Forward To another Email-Address',ui_textarea('forwardto', $forwardto, 5,40).'Full email address, with comma sepreate  ');
 print ui_table_row('Account Active',ui_checkbox('useractive', '1','',$useractive).' By un-checking this box account is disabled but data is intake.');
 
-print ui_hidden('fun', 'updateuser', 40);
-print ui_hidden('vusername', $in{'vusername'}, 40);
+print ui_hidden('fun', 'updateuser');
+print ui_hidden('vusername', $in{'vusername'});
 
 #print ui_table_row('&nbsp;',ui_submit('Update user', 'fun2'));
 
@@ -1179,8 +1180,8 @@ print ui_table_row('Sender Type',$selx,1);
 
 print ui_table_row('Account Active',ui_checkbox('useractive', '1','',$useractive).' By un-checking this box account/group is disable.');
 
-print ui_hidden('fun', 'saveupdatelist', 40);
-print ui_hidden('vusername', $in{'vusername'}, 40);
+print ui_hidden('fun', 'saveupdatelist');
+print ui_hidden('vusername', $in{'vusername'});
 print ui_table_row('&nbsp;',ui_submit('Save Group Mailing List', 'fun2'));
 
 print ui_table_row('&nbsp;',ui_button('Delete Group Mailing List', 'fun2',undef,'onClick=dellist();return false;"'));
@@ -1395,7 +1396,7 @@ if($in{'fun'} eq "addlist")
 print "<br>";
 print ui_table_start('Add a new Group Mailling List  @'.$vdomain, undef, 2);
 print ui_table_row('New List name',ui_textbox('vnewlist', $in{'vnewlist'}, 40).'@'.$vdomain);
-print ui_hidden('fun', 'savenewlist', 40);
+print ui_hidden('fun', 'savenewlist');
 print ui_table_row('&nbsp;',ui_submit('Add new mailing list', 'fun2'));
 
  print ui_table_end();
