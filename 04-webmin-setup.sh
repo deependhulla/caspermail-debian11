@@ -1,9 +1,11 @@
 #!/bin/bash
 
-
-echo "#deb https://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list 
+## old format
+##echo "#deb https://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list 
+##wget -c https://download.webmin.com/jcameron-key.asc -O /etc/apt/trusted.gpg.d/webmin-jcameron-key.asc
+## New Format
 echo "deb https://download.webmin.com/download/newkey/repository stable contrib" > /etc/apt/sources.list.d/webmin.list 
-wget -c https://download.webmin.com/jcameron-key.asc -O /etc/apt/trusted.gpg.d/webmin-jcameron-key.asc
+wget -c https://download.webmin.com/developers-key.asc -O /etc/apt/trusted.gpg.d/developers-key.asc
 apt-get update
 apt-get -y install webmin
 
